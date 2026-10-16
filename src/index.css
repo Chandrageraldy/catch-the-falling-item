@@ -1,0 +1,50 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  background-color: #10394f;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas {
+  display: block;
+  width: min(100%, calc(100dvh * 720 / 1280));
+  aspect-ratio: 720 / 1280;
+  height: auto;
+  touch-action: none;
+}
+
+/* Pixel-art start button: a chunky drop-shadow "block" that the button
+   presses flush into on :active. Only expressible via a real CSS class —
+   inline styles (used everywhere else) can't target :active. */
+.pixel-button {
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease;
+}
+
+.pixel-button:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 #0c2c3a;
+}
+
+/* LoadingScreen's spinner — a CSS-only indicator has no load/decode delay of
+   its own, unlike an image, so it can render immediately with no flash risk. */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
