@@ -1,0 +1,7 @@
+services:
+  catch-game:
+    build: .
+    container_name: catch-game
+    ports:
+      - "127.0.0.1:5573:5573"
+    restart: unless-stopped
