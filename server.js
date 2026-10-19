@@ -20,8 +20,9 @@ app.use((req, res, next) => {
 app.use(
   `${BASE}/assets`,
   express.static(path.join(DIST, 'assets'), {
-    setHeaders: (res) => {
-      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    setHeaders: (res, filePath) => {
+      const hashed = /-[A-Za-z0-9_-]{8}\.[a-z0-9]+$/.test(path.basename(filePath));
+      res.setHeader('Cache-Control', hashed ? 'public, max-age=31536000, immutable' : 'no-cache');
     },
   })
 );

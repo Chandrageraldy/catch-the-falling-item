@@ -36,7 +36,7 @@ export const CONFIG = {
     // Source rectangle sampled from Basket_Asset.png (a 2000x2000 canvas):
     // crops out the large transparent margin above/below the basket shape so
     // none of the player's drawn footprint is empty space.
-    spriteCrop: { x: 0, y: 530, width: 2000, height: 1100 },
+    spriteCrop: { x: 0, y: 63.6, width: 240, height: 132 },
     // Fraction of the remaining distance to the pointer closed per fixed
     // step. Safe as a flat constant (not scaled by dt) because FIXED_STEP
     // never varies, so this already produces identical feel at 60Hz and 120Hz.
